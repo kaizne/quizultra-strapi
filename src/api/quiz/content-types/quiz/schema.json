@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quizzes",
+  "info": {
+    "singularName": "quiz",
+    "pluralName": "quizzes",
+    "displayName": "Quiz",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "unique": false
+    },
+    "description": {
+      "type": "string"
+    },
+    "type": {
+      "type": "integer",
+      "default": 0
+    },
+    "characters": {
+      "type": "json"
+    }
+  }
+}
