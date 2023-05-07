@@ -4,15 +4,13 @@
 
 const { createCoreController } = require('@strapi/strapi').factories
 
-module.exports = createCoreController('api::quiz.quiz', ({ strapi }) => ({
+module.exports = createCoreController('api::quiz.quiz', ({ strapi }) =>  ({
     async findOne(ctx) {
-      const { id: slug } = ctx.params
-      const { query } = ctx
-      if (!query.filters) query.filters = {}
-      query.filters.slug = { '$eq': slug }
-      const entity = await strapi.service('api::quiz.quiz').find(query)
-      const { results } = await this.sanitizeOutput(entity, ctx)
-      return this.transformResponse(results[0])
-    }
-  })
-)
+        const { slug } = ctx.params;
+        const entity = await strapi.db.query('api::quiz.quiz').findOne({
+          where: { slug }
+        })
+        const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+        return this.transformResponse(sanitizedEntity);
+      }
+}))
