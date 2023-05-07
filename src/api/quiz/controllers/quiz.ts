@@ -2,6 +2,17 @@
  * quiz controller
  */
 
-import { factories } from '@strapi/strapi'
+const { createCoreController } = require('@strapi/strapi').factories
 
-export default factories.createCoreController('api::quiz.quiz');
+module.exports = createCoreController('api::quiz.quiz', ({ strapi }) => ({
+    async findOne(ctx) {
+      const { id: slug } = ctx.params
+      const { query } = ctx
+      if (!query.filters) query.filters = {}
+      query.filters.slug = { '$eq': slug }
+      const entity = await strapi.service('api::quiz.quiz').find(query)
+      const { results } = await this.sanitizeOutput(entity, ctx)
+      return this.transformResponse(results[0])
+    }
+  })
+)
