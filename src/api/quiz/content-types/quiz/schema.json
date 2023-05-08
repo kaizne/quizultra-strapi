@@ -30,6 +30,24 @@
     },
     "characters": {
       "type": "json"
+    },
+    "questions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "quiz.question"
+    },
+    "conclusion": {
+      "type": "json"
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
