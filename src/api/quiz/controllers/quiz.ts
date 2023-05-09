@@ -10,6 +10,7 @@ module.exports = createCoreController('api::quiz.quiz', ({ strapi }) =>  ({
         const entity = await strapi.db.query('api::quiz.quiz').findOne({
             where: { slug },
             populate: {
+                image: true,
                 media: true,
                 questions: {
                     populate: {
