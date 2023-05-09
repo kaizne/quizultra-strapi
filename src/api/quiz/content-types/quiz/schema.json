@@ -22,7 +22,7 @@
       "unique": false
     },
     "description": {
-      "type": "string"
+      "type": "text"
     },
     "type": {
       "type": "integer",
