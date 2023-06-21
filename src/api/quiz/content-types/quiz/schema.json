@@ -60,6 +60,12 @@
         "videos",
         "audios"
       ]
+    },
+    "subcategory": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
     }
   }
 }
