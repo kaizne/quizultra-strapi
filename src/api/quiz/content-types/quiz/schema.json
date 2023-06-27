@@ -66,6 +66,9 @@
     },
     "label": {
       "type": "string"
+    },
+    "category": {
+      "type": "string"
     }
   }
 }
